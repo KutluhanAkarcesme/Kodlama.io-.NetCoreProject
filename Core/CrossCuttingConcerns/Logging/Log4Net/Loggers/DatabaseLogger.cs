@@ -8,7 +8,8 @@ namespace Core.CrossCuttingConcerns.Logging.Log4Net.Loggers
 {
     public class DatabaseLogger : LoggerServiceBase
     {
-        public DatabaseLogger(string name) : base("DatabaseLogger")
+        public static string name = "DatabaseLogger";
+        public DatabaseLogger() : base(name)
         {
 
         }
