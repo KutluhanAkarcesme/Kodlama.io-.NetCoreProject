@@ -1,4 +1,5 @@
 ﻿using Core.Entities.Concrete;
+using DataAccess.Concrete.EntityFramewrok.Mappings;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -23,6 +24,11 @@ namespace DataAccess.Concrete.EntityFramewrok.Context
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ProductMap());
+        }
 
     }
 }
